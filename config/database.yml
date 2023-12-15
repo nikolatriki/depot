@@ -80,7 +80,4 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: depot_production
-  username: depot
-  password: <%= ENV["DEPOT_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
