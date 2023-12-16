@@ -10,33 +10,33 @@ class ProductTest < ActiveSupport::TestCase
     assert(product.errors[:price].any?)
   end
 
-  test 'price must be greater then 0.00' do
-    product = Product.new(title: 'My Book Title', description: 'ggg', image_url: 'we.png')
+  test "price must be greater then 0.00" do
+    product = Product.new(title: "My Book Title", description: "ggg", image_url: "we.png")
 
     product.price = -1
     assert product.invalid?
-    assert_equal ['must be greater than or equal to 0.01'], product.errors[:price]
+    assert_equal ["must be greater than or equal to 0.01"], product.errors[:price]
 
     product.price = 0
     assert product.invalid?
-    assert_equal ['must be greater than or equal to 0.01'], product.errors[:price]
+    assert_equal ["must be greater than or equal to 0.01"], product.errors[:price]
 
     product.price = 1
     assert product.valid?
   end
 
-  test 'unique title' do
+  test "unique title" do
     old_product = products(:one)
-    new_product = Product.new(title: old_product.title, description: 'ggg', image_url: 'we.png', price: 1)
+    new_product = Product.new(title: old_product.title, description: "ggg", image_url: "we.png", price: 1)
     assert new_product.invalid?
   end
 
-  test 'image url format' do
+  test "image url format" do
     def new_product(image_url)
-      Product.new(title: 'My Book Title', description: 'ggg', price: 1, image_url: image_url)
+      Product.new(title: "My Book Title", description: "ggg", price: 1, image_url: image_url)
     end
 
-    assert new_product('fred.gif').valid?
-    assert new_product('bob.doc').invalid?
+    assert new_product("fred.gif").valid?
+    assert new_product("bob.doc").invalid?
   end
 end
