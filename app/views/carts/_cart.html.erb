@@ -6,5 +6,5 @@
       <li><%= item.quantity %> &times; <%= item.product.title %></li>
     <% end %>
   </ul>
-
+  <%= button_to "Clear cart", cart_path(cart), method: :delete, class: "ml-4 rounded-lg py-1 px-2 text-white bg-green-600" %>
 </div>
