@@ -17,7 +17,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cart" do
     assert_difference("Cart.count") do
-      post carts_url, params: { cart: {  } }
+      post carts_url, params: {cart: {}}
     end
 
     assert_redirected_to cart_url(Cart.last)
@@ -34,12 +34,12 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cart" do
-    patch cart_url(@cart), params: { cart: {  } }
+    patch cart_url(@cart), params: {cart: {}}
     assert_redirected_to cart_url(@cart)
   end
 
   test "should destroy cart" do
-    post line_items_path, params: { product_id: products(:one).id }
+    post line_items_path, params: {product_id: products(:one).id}
     @cart = Cart.find(session[:cart_id])
 
     assert_difference("Cart.count", -1) do

@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
-  before_action :set_cart, only: %i[ show edit update destroy ]
+  before_action :set_cart, only: %i[show edit update destroy]
 
   # GET /carts or /carts.json
   def index
@@ -60,18 +60,19 @@ class CartsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cart_params
-      params.fetch(:cart, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cart
+    @cart = Cart.find(params[:id])
+  end
 
-    def invalid_cart
-      logger.error("Attempt to access invalid cart #{params[:id]}")
-      redirect_to store_index_path, notice: "Invalid cart"
-    end
+  # Only allow a list of trusted parameters through.
+  def cart_params
+    params.fetch(:cart, {})
+  end
+
+  def invalid_cart
+    logger.error("Attempt to access invalid cart #{params[:id]}")
+    redirect_to store_index_path, notice: "Invalid cart"
+  end
 end
