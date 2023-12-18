@@ -46,4 +46,13 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to products_url
   end
+
+  test "can't delete product in cart" do
+    @product2 = products(:two)
+    assert_difference("Product.count", 0) do
+      delete product_path(@product2)
+    end
+
+    assert_redirected_to products_path
+  end
 end
