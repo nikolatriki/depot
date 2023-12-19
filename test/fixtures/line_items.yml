@@ -3,7 +3,9 @@
 one:
   product: two
   cart: one
+  price: 9.99
 
 two:
   product: two
   cart: two
+  price: 8.99
