@@ -2,7 +2,7 @@
   <h2 class="font-bold text-lg mb-3">Your Cart</h2>
 
   <table class="table-auto">
-  <%= render cart.line_items %>
+  <%= render cart.line_items.order(:created_at) %>
     <tfoot>
       <tr>
         <th class="text-right pr-2 pt-2" colspan="3">Total:</th>
