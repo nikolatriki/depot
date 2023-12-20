@@ -28,6 +28,9 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(:cart,
+                                                                        partial: 'layouts/cart',
+                                                                        locals: { cart: @cart })}
         format.html { redirect_to store_index_url }
         format.json { render :show, status: :created, location: @line_item }
         session[:counter] = 0

@@ -20,9 +20,7 @@
 
     <section class="flex">
       <nav class="bg-green-900 p-6">
-        <div id="cart" class="bg-white rounded p-2">
-          <%= render @cart if @cart && !@cart.line_items.empty? %>
-        </div>
+        <%= render partial: "layouts/cart", locals: {cart: @cart} %>
         <ul class="text-gray-300 leading-8">
           <li>Time: <%= Time.now.strftime("%H:%M") %></li>
           <li><a href="/">Home</a></li>
