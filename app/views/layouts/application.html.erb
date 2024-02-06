@@ -3,10 +3,12 @@
   <head>
     <title>Pragprog Books Online Store</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta property="og:title" content="Open Graph Meta Tags: Everything You Need to Know" />
-    <meta property="og:url" content="https://ahrefs.com/blog/open-graph-meta-tags/" />
+    <meta property="og:title" content="<%= @product.title%>" />
+    <meta property="og:url" content="<%= product_url(@product)%>" />
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="Learn about 13 features that set Ahrefs apart from the competition." />
+    <meta property="og:description" content="<%= @product.description %>" />
+    <meta property="og:image" content="https://ahrefs.com/blog/wp-content/uploads/2020/01/fb-open-graph-1.jpg" />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" %>
