@@ -3,11 +3,7 @@
   <head>
     <title>Pragprog Books Online Store</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta property="og:title" content="<%= Product.all.each(&:title)%>" />
-    <meta property="og:url" content="<%= product_url(Product.all.each{ |p| p })%>" />
-    <meta property="og:type" content="article" />
-    <meta property="og:description" content="<%= Product.all.each(&:description) %>" />
-    <meta property="og:image" content="https://ahrefs.com/blog/wp-content/uploads/2020/01/fb-open-graph-1.jpg" />
+    
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
