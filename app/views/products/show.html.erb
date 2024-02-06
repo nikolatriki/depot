@@ -3,7 +3,7 @@
   <meta property="og:url" content="<%= product_url(@product) %>">
   <meta property="og:type" content="article">
   <meta property="og:description" content="<%= @product.description %>">
-  <meta property="og:image" content="<%= @product.image_url %>">
+  <meta property="og:image" content="<%= image_url(@product.image_url) %>">
   <meta property="og:image:type" content="image/jpeg" />
 
 <% end %>
