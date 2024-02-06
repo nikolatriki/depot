@@ -3,7 +3,8 @@
   <head>
     <title>Pragprog Books Online Store</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    
+    <%= yield :og_tags if content_for?(:og_tags) %>
+
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
