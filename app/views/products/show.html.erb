@@ -3,7 +3,9 @@
   <meta property="og:url" content="<%= product_url(@product) %>">
   <meta property="og:type" content="article">
   <meta property="og:description" content="<%= @product.description %>">
-  <meta property="og:image" content="https://ahrefs.com/blog/wp-content/uploads/2020/01/fb-open-graph-1.jpg">
+  <meta property="og:image" content="<%= @product.image_url %>">
+  <meta property="og:image:type" content="image/jpeg" />
+
 <% end %>
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
