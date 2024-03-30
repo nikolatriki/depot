@@ -9,7 +9,7 @@
 # encoding: utf-8
 
 Product.delete_all
-Product.create!(title: "Docker for Rails Developers",
+Product.create!(title: "Temjanika Prima",
   description:
     %(<p>
       <em>Build, Ship, and Run Your Applications Everywhere</em> Docker does
@@ -22,10 +22,10 @@ Product.create!(title: "Docker for Rails Developers",
       the way to production as Docker transforms the massive leap of
       deploying your app in the cloud into a baby step.
       </p>),
-  image_url: "ridocker.jpg",
-  price: 19.95)
+  image_url: "temjanika.jpg",
+  price: 599.00)
 # . . .
-Product.create!(title: "Design and Build Great Web APIs",
+Product.create!(title: "Skroten Vranec",
   description:
     %(<p>
       <em>Robust, Reliable, and Resilient</em>
@@ -39,22 +39,22 @@ Product.create!(title: "Design and Build Great Web APIs",
       open-source utilities and common programming patterns you can apply
       right away.
       </p>),
-  image_url: "maapis.jpg",
-  price: 24.95)
+  image_url: "vranec.jpg",
+  price: 199.00)
 # . . .
 
-Product.create!(title: "Modern CSS with Tailwind",
-  description:
-    %(<p>
-      <em>Flexible Styling Without the Fuss</em>
-      Tailwind CSS is an exciting new CSS framework that allows you to
-      design your site by composing simple utility classes to create complex
-      effects. With Tailwind, you can style your text, move your items on
-      the page, design complex page layouts, and adapt your design for
-      devices from a phone to a wide-screen monitor. With this book, you’ll
-      learn how to use the Tailwind for its flexibility and its consistency,
-      from the smallest detail of your typography to the entire design of
-      your site.
-      </p>),
-  image_url: "tailwind.jpg",
-  price: 18.95)
+# Product.create!(title: "Modern CSS with Tailwind",
+#   description:
+#     %(<p>
+#       <em>Flexible Styling Without the Fuss</em>
+#       Tailwind CSS is an exciting new CSS framework that allows you to
+#       design your site by composing simple utility classes to create complex
+#       effects. With Tailwind, you can style your text, move your items on
+#       the page, design complex page layouts, and adapt your design for
+#       devices from a phone to a wide-screen monitor. With this book, you’ll
+#       learn how to use the Tailwind for its flexibility and its consistency,
+#       from the smallest detail of your typography to the entire design of
+#       your site.
+#       </p>),
+#   image_url: "tailwind.jpg",
+#   price: 18.95)

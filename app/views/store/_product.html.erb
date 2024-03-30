@@ -1,7 +1,7 @@
 <%= turbo_frame_tag(dom_id(product)) do %>
   <li class='flex mb-6'>
     <%= image_tag(product.image_url,
-      class: 'object-contain w-40 h-48 shadow mr-6') %>
+      class: 'object-contain w-40 shadow mr-6') %>
 
     <div>
       <h2 class="font-bold text-lg mb-3"><%= product.title %></h2>

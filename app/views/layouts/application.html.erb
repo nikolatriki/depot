@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pragprog Books Online Store</title>
+    <title>Arsov Winery Online Store</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= yield :og_tags if content_for?(:og_tags) %>
 
@@ -16,15 +16,15 @@
   </head>
 
   <body>
-    <header class="bg-green-700">
-      <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
+    <header class="bg-transparent">
+      <%= image_tag 'logoarsov.jpeg', alt: 'Arsov Winery', width: '137px' %>
       <h1><%= @page_title %></h1>
     </header>
 
     <section class="flex">
-      <nav class="bg-green-900 p-6">
+      <nav class="bg-transparent p-6">
         <%= render partial: "layouts/cart", locals: {cart: @cart} %>
-        <ul class="text-gray-300 leading-8">
+        <ul class="text-black-300 leading-8">
           <li>Time: <%= Time.now.strftime("%H:%M") %></li>
           <li><a href="/">Home</a></li>
           <li><a href="/questions">Questions</a></li>
