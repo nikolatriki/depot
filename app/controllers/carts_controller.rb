@@ -4,11 +4,12 @@ class CartsController < ApplicationController
 
   # GET /carts or /carts.json
   def index
-    @carts = Cart.all
+    @carts = Cart.where(id: session[:cart_id])
   end
 
   # GET /carts/1 or /carts/1.json
   def show
+
   end
 
   # GET /carts/new
@@ -68,9 +69,15 @@ class CartsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  # Playtime: Implement the set_cart method to ensure that the user can only view their own cart.
   def set_cart
-    @cart = Cart.find(params[:id])
+    if params[:id] == session[:cart_id]
+      @cart = Cart.find(params[:id])
+    else
+      flash[:notice] = "You can only view your own cart."
+      redirect_to carts_url
+    end
+
   end
 
   # Only allow a list of trusted parameters through.

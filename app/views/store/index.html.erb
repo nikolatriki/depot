@@ -1,10 +1,6 @@
 <div class="w-full">
 <%= render "notice"%>
 
-<% if @counter > 5 %> <%# TODO: make this in a turbo stream so it updates when a product is added %>
-  <h1><i>You've visited this page <%= pluralize(@counter, 'time') %> without adding an item to cart</i></h1>
-<%end%>
-
 <h1 class="font-bold text-xl mb-6 pb-2 border-b-2">
   Your Wine Catalog
 </h1>
