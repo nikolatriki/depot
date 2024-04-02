@@ -71,13 +71,11 @@ class CartsController < ApplicationController
 
   # Playtime: Implement the set_cart method to ensure that the user can only view their own cart.
   def set_cart
-    if params[:id] == session[:cart_id]
-      @cart = Cart.find(params[:id])
-    else
+    @cart = Cart.find(params[:id])
+    if params[:id].to_i != session[:cart_id]
       flash[:notice] = "You can only view your own cart."
       redirect_to carts_url
     end
-
   end
 
   # Only allow a list of trusted parameters through.
