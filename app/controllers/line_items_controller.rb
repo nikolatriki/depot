@@ -28,7 +28,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.turbo_stream { @current_item = @line_item }
+        format.turbo_stream { @current_item = @line_item } # This setting of @current_item is necessary for the Yellow Fade Technique to work in app/views/line_items/_line_item.html.erb
         format.html { redirect_to store_index_url }
         format.json { render :show, status: :created, location: @line_item }
       else
