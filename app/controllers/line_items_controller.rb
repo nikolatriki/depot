@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
-  before_action :set_line_item, only: %i[ show edit update destroy ]
+  before_action :set_cart, only: [:create, :increment_quantity, :decrement_quantity]
+  before_action :set_line_item, only: %i[ show edit update destroy increment_quantity decrement_quantity]
 
   # GET /line_items or /line_items.json
   def index
@@ -58,6 +58,42 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to store_index_url, notice: "Line item was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def increment_quantity
+    @line_item.quantity += 1
+    @line_item.save
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart})
+      end
+      format.html {redirect_to store_index_url, notice: 'Line item was successfully updated.'}
+    end
+  end
+
+  def decrement_quantity
+    @line_item.quantity -= 1
+    @line_item.quantity > 0 ? @line_item.save : @line_item.destroy
+
+    respond_to do |format|
+      if @line_item.quantity > 0
+        @line_item.save
+
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart})
+        end
+      else
+        @line_item.destroy
+
+        format.turbo_stream do
+          render turbo_stream:
+          turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart})
+           +
+          turbo_stream.replace('notice', partial: 'store/notice', locals: {notice: 'Line item was successfully destroyed.'})
+        end
+      end
     end
   end
 

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :line_items
+  resources :line_items do
+    post 'increment_quantity', on: :member
+    post 'decrement_quantity', on: :member
+  end
   resources :carts
   resources :products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
