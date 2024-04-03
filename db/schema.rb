@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_19_194353) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_03_200927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,13 +21,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_194353) do
 
   create_table "line_items", force: :cascade do |t|
     t.bigint "product_id", null: false
-    t.bigint "cart_id", null: false
+    t.integer "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity", default: 1
     t.decimal "price", precision: 8, scale: 2
+    t.bigint "order_id"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.text "address"
+    t.string "email"
+    t.integer "pay_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -40,5 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_194353) do
   end
 
   add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
 end
