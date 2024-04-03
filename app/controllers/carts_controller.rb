@@ -56,6 +56,7 @@ class CartsController < ApplicationController
       session[:cart_id] = nil
 
       respond_to do |format|
+        format.turbo_stream { flash.now[:notice] = "Your cart is currently empty." }
         format.html { redirect_to store_index_url, notice: "Your cart is currently empty." }
         format.json { head :no_content }
       end
