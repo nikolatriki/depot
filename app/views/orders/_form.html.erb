@@ -13,25 +13,27 @@
 
   <div class="my-5">
     <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :name, class: "input-field" %>
   </div>
 
   <div class="my-5">
     <%= form.label :address %>
-    <%= form.text_area :address, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_area :address, rows: 4, class: "input-field" %>
   </div>
 
   <div class="my-5">
     <%= form.label :email %>
-    <%= form.text_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :email, class: "input-field" %>
   </div>
 
   <div class="my-5">
     <%= form.label :pay_type %>
-    <%= form.number_field :pay_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :pay_type, Order.pay_types.keys,
+                    { prompt: "Select a payment method"},
+                    class: "input-field" %>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit 'Place Order', class: "rounded-lg py-3 px-5 bg-green-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>
