@@ -63,23 +63,21 @@ class LineItemsController < ApplicationController
 
   def increment_quantity
     @line_item.quantity += 1
-    @line_item.save
+    @line_item.update(quantity: @line_item.quantity)
 
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart})
       end
-      format.html {redirect_to store_index_url, notice: 'Line item was successfully updated.'}
     end
   end
 
   def decrement_quantity
     @line_item.quantity -= 1
-    @line_item.quantity > 0 ? @line_item.save : @line_item.destroy
 
     respond_to do |format|
       if @line_item.quantity > 0
-        @line_item.save
+        @line_item.update(quantity: @line_item.quantity)
 
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart})
@@ -89,8 +87,7 @@ class LineItemsController < ApplicationController
 
         format.turbo_stream do
           render turbo_stream:
-          turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart})
-           +
+          turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart}) +
           turbo_stream.replace('notice', partial: 'store/notice', locals: {notice: 'Line item was successfully destroyed.'})
         end
       end
