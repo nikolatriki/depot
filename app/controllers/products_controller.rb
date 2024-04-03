@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
       if @product.save
         format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
-        @product.broadcast_append_later_to 'products', partial: 'store/product', target: 'products-list'
+        @product.broadcast_prepend_later_to 'products', partial: 'store/product', target: 'products-list'
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @product.errors, status: :unprocessable_entity }
