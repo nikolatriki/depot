@@ -65,9 +65,11 @@ class LineItemsController < ApplicationController
     @line_item.quantity += 1
     @line_item.update(quantity: @line_item.quantity)
 
-    respond_to do |format|
+    respond_to do |format| #TODO - Refactor this to use a partial for the cart and notice
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart})
+        render turbo_stream:
+        turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart}) +
+        turbo_stream.replace('notice', partial: 'store/notice')
       end
     end
   end
@@ -79,13 +81,15 @@ class LineItemsController < ApplicationController
       if @line_item.quantity > 0
         @line_item.update(quantity: @line_item.quantity)
 
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart})
+        format.turbo_stream do #TODO - Refactor this to use a partial for the cart and notice
+          render turbo_stream:
+          turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart}) +
+          turbo_stream.replace('notice', partial: 'store/notice')
         end
       else
         @line_item.destroy
 
-        format.turbo_stream do
+        format.turbo_stream do #TODO - Refactor this to use a partial for the cart and notice
           render turbo_stream:
           turbo_stream.replace('cart', partial: 'layouts/cart', locals: {cart: @cart}) +
           turbo_stream.replace('notice', partial: 'store/notice', locals: {notice: 'Line item was successfully destroyed.'})
