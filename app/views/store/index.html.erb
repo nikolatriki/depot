@@ -5,7 +5,7 @@
   Your Wine Catalog
 </h1>
 <%= turbo_stream_from "products" %>
-  <ul>
+  <ul id="products-list">
     <% cache @products do %>
       <% @products.each do |product| %>
         <% cache product do %>
