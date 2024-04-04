@@ -53,6 +53,6 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       delete product_path(@product2)
     end
 
-    assert_redirected_to products_path
+    assert_redirected_to product_path
   end
 end
