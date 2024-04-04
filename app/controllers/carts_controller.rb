@@ -72,8 +72,8 @@ class CartsController < ApplicationController
 
   # Playtime: Implement the set_cart method to ensure that the user can only view their own cart.
   def set_cart
-    @cart = Cart.find(params[:id])
-    if params[:id].to_i != session[:cart_id]
+    @cart = Cart.find(params[:id]) # In case this fails (there no exist cart with id "wibble" for ex.), ActiveRecord::RecordNotfound will be raised and for that case the rescue_from callback will catch it with the invalid_cart method.
+    if params[:id].to_i != session[:cart_id] # In case there is cart with some valid id (unlike "wibble") but not just ours, nil will be returned instead of RecordNotFound, that's why i need to catch it here
       flash[:notice] = "You can only view your own cart."
       redirect_to carts_url
     end
