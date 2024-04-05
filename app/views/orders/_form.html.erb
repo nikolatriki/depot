@@ -23,14 +23,22 @@
 
   <div class="my-5">
     <%= form.label :email %>
-    <%= form.text_field :email, class: "input-field" %>
+    <%= form.email_field :email, class: "input-field" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :pay_type %>
-    <%= form.select :pay_type, Order.pay_types.keys,
-                    { prompt: "Select a payment method"},
-                    class: "input-field" %>
+  <div data-controller="payment">
+    <div class="my-5">
+      <%= form.label :pay_type %>
+      <%= form.select :pay_type, Order.pay_types.keys,
+                      { prompt: "Select a payment method"},
+                      'data-payment-target' => 'selection',
+                      "data-action" => "payment#showAdditionalFields",
+                      class: "input-field" %>
+    </div>
+
+    <%= render partial: "check", locals: { form: form } %>
+    <%= render partial: "cc", locals: { form: form } %>
+    <%= render partial: "po", locals: { form: form } %>
   </div>
 
   <div class="inline">
