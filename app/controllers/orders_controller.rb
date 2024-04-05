@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        
+
         format.html { redirect_to store_index_url, notice: "Thank you for your order!" }
         format.json { render :show, status: :created, location: @order }
       else
@@ -72,7 +72,7 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :routing_number, :account_number, :credit_card_number, :expiration_date, :po_number)
     end
 
     def ensure_cart_isnt_empty
