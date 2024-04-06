@@ -1,0 +1,19 @@
+<h3>Dear <%=@order.name%>,</h3>
+<p>Thank you for your recent order from The Arsov Winery Online Store.</p>
+<p>You ordered the following items:</p>
+
+<% @order.line_items.each do |line_item| %>
+  <table class="table-auto">
+    <tr>
+      <td class="text-right"><%= line_item.quantity %></td>
+      <td>&times;</td>
+      <td class="pr-2"><%= line_item.product.title %></td>
+      <td class="text-right font-bold"><%= number_to_currency(line_item.total_price, format: "%n %u", unit: "MKD")%></td>
+    </tr>
+  </table>
+<% end %>
+<p>Total:
+<%= number_to_currency(@order.line_items.map { |i| i.price * i.quantity}.sum,format: "%n %u", unit: "MKD") %>
+</p>
+
+<p>We'll send you a separate e-mail when your order ships.</p>

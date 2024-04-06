@@ -1,0 +1,19 @@
+<h3>Your order has been shipped</h3>
+
+<p>
+  This is just to let you know that we've shipped your recent order for:
+</p>
+
+  <% @order.line_items.each do |line_item| %>
+  <table class="table-auto">
+    <tr>
+      <td class="text-right"><%= line_item.quantity %></td>
+      <td>&times;</td>
+      <td class="pr-2"><%= line_item.product.title %></td>
+    </tr>
+  </table>
+  <% end %>
+
+  <p>to your address:</p>
+  <p><%= @order.address %></p>
+  <p>Thank you for shopping with us!</p>
