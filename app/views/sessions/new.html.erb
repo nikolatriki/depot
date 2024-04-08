@@ -10,13 +10,13 @@
     <h2 class="font-bold text-3xl">Please Log In</h2>
     <div class="my-5">
       <%= label_tag :name, 'Name:' %>
-      <%= text_field_tag :name, params[:name], class: "payment-field" %>
+      <%= text_field_tag :name, params[:name], class: "input-field" %>
     </div>
 
     <div class="my-5">
       <%= label_tag :password, 'Password:' %>
       <%= password_field_tag :password, params[:password],
-        class: "payment-field" %>
+        class: "input-field" %>
     </div>
 
     <div class="actions">
