@@ -1,8 +1,15 @@
 <div class="mx-auto md:w-2/3 w-full">
   <h1 class="font-bold text-4xl">Editing order</h1>
+  <%= form_with model: @order do |form| %>
+    <%= form.label :ship_date %>
+    <%= form.date_field :ship_date, class: "input-field" %>
 
-  <%= render "form", order: @order %>
+    <%= form.submit class: "rounded my-5 py-3 px-5 bg-green-600 text-white inline-block font-medium cursor-pointer" %>
+  <%end%>
 
-  <%= link_to "Show this order", @order, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to orders", orders_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="inline-block ml-2">
+    <%= link_to "Show this order", @order, class: "rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+  </div>
+    <%= link_to "Back to orders", orders_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
 </div>

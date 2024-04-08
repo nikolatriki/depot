@@ -1,27 +1,48 @@
-<div id="<%= dom_id order %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= order.name %>
-  </p>
+<table id="<%= dom_id order %>">
+  <tr>
+    <td><strong class="block font-medium mb-1">Order Number#</strong></td>
+    <td><%= order.id %></td>
+  </tr>
+  <tr>
+    <td><strong class="block font-medium mb-1">Name:</strong></td>
+    <td><%= order.name %></td>
+  </tr>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Address:</strong>
-    <%= order.address %>
-  </p>
+  <tr>
+    <td><strong class="block font-medium mb-1">Address:</strong></td>
+    <td><%= order.address %></td>
+  </tr>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Email:</strong>
-    <%= order.email %>
-  </p>
+  <tr>
+    <td><strong class="block font-medium mb-1">Email:</strong></td>
+    <td><%= order.email %></td>
+  </tr>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Pay type:</strong>
-    <%= order.pay_type %>
-  </p>
+  <tr>
+    <td><strong class="block font-medium mb-1">Pay type:</strong></td>
+    <td><%= order.pay_type %></td>
+  </tr>
+
+  <tr>
+    <td><strong class="block font-medium mb-1">Ship date:</strong></td>
+    <td>
+      <% if order.ship_date.nil? %>
+        <span class="my-5 text-white bg-red-500"><strong>NOT YET SHIPPED</strong></span>
+      <% else %>
+        <span><%= order.ship_date %></span>
+      <% end %>
+    </td>
+  </tr>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this order", order, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this order", edit_order_path(order), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <tr>
+      <td colspan="2">
+        <%= link_to "Show this order", order, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= link_to "Edit this order", edit_order_path(order), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><hr class="mt-6"></td>
+    </tr>
   <% end %>
-</div>
+</table>

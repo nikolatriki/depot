@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.order(:created_at)
   end
 
   # GET /orders/1 or /orders/1.json
@@ -47,6 +47,13 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
+
+        previous_changes = @order.previous_changes
+
+        if previous_changes.include?('ship_date') && previous_changes['ship_date'].first.nil?
+          OrderMailer.shipped(@order).deliver_later
+        end
+
         format.html { redirect_to order_url(@order), notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -74,7 +81,7 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type, :routing_number, :account_number, :credit_card_number, :expiration_date, :po_number)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :routing_number, :account_number, :credit_card_number, :expiration_date, :po_number, :ship_date)
     end
 
     def ensure_cart_isnt_empty
