@@ -2,7 +2,8 @@
   <h1 class="mx-auto text-lg font-bold text-4xl">Welcome</h1>
 
   <p>
-    It's <%= Time.now %>.
-    We have <%= pluralize(@total_orders, "order") %>.
-  </p>
+    <p>
+    It's <%= Time.now.strftime("%A, %d, %B, %Y") %>.
+    </p>
+    <p>We have <%= pluralize(@total_orders, "order") %> in total.</p>
 </div>

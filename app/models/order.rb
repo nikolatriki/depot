@@ -24,6 +24,8 @@ class Order < ApplicationRecord
     end
   end
 
+
+
   def charge!(pay_type_params)
     payment_details = {}
     payment_method = nil
