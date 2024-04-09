@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  skip_before_action :authorize, only: %i[create]
-  before_action :set_cart, only: [:create, :increment_quantity, :decrement_quantity]
+  skip_before_action :authorize, only: %i[create destroy increment_quantity decrement_quantity]
+  before_action :set_cart, only: [:create, :destroy, :increment_quantity, :decrement_quantity]
   before_action :set_line_item, only: %i[ show edit update destroy increment_quantity decrement_quantity]
 
   # GET /line_items or /line_items.json
@@ -57,6 +57,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
+      format.turbo_stream
       format.html { redirect_to store_index_url, notice: "Line item was successfully destroyed." }
       format.json { head :no_content }
     end
