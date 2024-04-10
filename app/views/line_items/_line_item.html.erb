@@ -8,9 +8,20 @@
     <td class="pr-2"><%= line_item.product.title %></td>
     <td class="text-right font-bold"><%= number_to_currency(line_item.total_price, format: "%n %u", unit: "MKD")%></td>
     <% if local_assigns[:layout] %>
-      <td><%= button_to 'Remove', line_item_path(line_item), method: :delete, class: "ml-4 rounded-lg py-1 px-2 text-white bg-slate-400" %></td>
-      <td><%= button_to "+", increment_quantity_line_item_path(line_item), class: "ml-4 rounded-lg py-1 px-2 text-white bg-slate-400" %>
-      <td><%= button_to '-', decrement_quantity_line_item_path(line_item), class: "ml-4 rounded-lg py-1 px-2 text-white bg-slate-400" %></td>
+      <span>
+        <td><%= button_to line_item_path(line_item), method: :delete do %>
+            <%= render_svg "icons/trash-can", styles: "w-[50px]" %>
+            <% end %>
+        </td>
+      </span>
+      <td><%= button_to increment_quantity_line_item_path(line_item) do %>
+          <%= render_svg "icons/plus_icon", styles: "w-[25px]" %>
+          <% end %>
+      </td>
+      <td><%= button_to decrement_quantity_line_item_path(line_item) do %>
+          <%= render_svg "icons/minus_icon", styles: "w-[25px]" %>
+          <% end %>
+      </td>
     <% end %>
   </tr>
 </tr>
