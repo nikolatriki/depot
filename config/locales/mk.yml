@@ -1,0 +1,68 @@
+mk:
+  layouts:
+    application:
+      home: "Дома"
+      questions: "Прашања"
+      news: "Вести"
+      contact: "Контакт"
+  store:
+    index:
+      home_title: "Вашиот Вински Каталог"
+    product:
+      add_to_cart: "Во кошничка"
+  carts:
+    cart:
+      your_cart: "Вашата кошничка"
+      empty_cart: "Испразни"
+      checkout: "Наплата"
+  number:
+    currency:
+      format:
+        delimiter: "."
+        separator: ","
+        precision: 2
+        unit: "ден."
+        format: "%n %u"
+  orders:
+    new:
+      title: "Внесете ги вашите податоци"
+    form:
+      name: "Име и Презиме"
+      address: "Адреса"
+      email: "Е-пошта"
+      pay_type: "Начин на плаќање"
+      select_pay_type: "Изберете начин на плаќање"
+      pay_types:
+        "Check": "Чек"
+        "Credit card": "Картичка"
+        "Purchase order": "Требување"
+      submit: "Порачај"
+    check:
+      routing: "Рутинг #"
+      account: "Сметка #"
+    cc:
+      cc_number: "Картичка #"
+      exp_date: "Важност до"
+    po:
+      po_number: "Требување #"
+  activerecord:
+    models:
+      order: "нарачка"
+    attributes:
+      order:
+        address: "Полето Адреса"
+        email: "Полето е-пошта"
+        name: "Полето Име и Презиме"
+        pay_type: "Начинот на плаќање"
+
+    errors:
+      messages:
+        inclusion: "не е валиден"
+        blank: "не смее да биде празно"
+  errors:
+    template:
+      body: "Грешка во внесените податоци во следните полиња:"
+      header:
+        one: "1 грешка спречи %{model}та да се зачува"
+        other: "%{count} грешки спречија %{model}та да се зачува"
+  thanks: "Ви благодариме за вашата нарачка. Ќе ви испратиме е-пошта со детали."

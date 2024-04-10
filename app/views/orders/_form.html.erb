@@ -1,36 +1,38 @@
 <%= form_with(model: order, class: "contents") do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+        <h2><%= raw t('errors.template.header', count: @order.errors.count, model: t('activerecord.models.order')) %>.</h2>
+        <p><%= t('errors.template.body') %></p>
 
       <ul>
         <% order.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li><%=raw error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="my-5">
-    <%= form.label :name %>
+    <%= form.label :name, t('.name') %>
     <%= form.text_field :name, class: "input-field" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :address %>
+    <%= form.label :address, t('.address') %>
     <%= form.text_area :address, rows: 4, class: "input-field" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :email %>
+    <%= form.label :email, t('.email') %>
     <%= form.email_field :email, class: "input-field" %>
   </div>
 
   <div data-controller="payment">
     <div class="my-5">
-      <%= form.label :pay_type %>
-      <%= form.select :pay_type, Order.pay_types.keys,
-                      { prompt: "Select a payment method"},
+      <%= form.label :pay_type, t('.pay_type') %>
+      <%= form.select :pay_type, Order.pay_types.keys.map { |key| [ t(".pay_types.#{key}"), key ] },
+                      { prompt: t('.select_pay_type')},
                       'data-payment-target' => 'selection',
                       "data-action" => "payment#showAdditionalFields",
                       class: "input-field" %>
@@ -42,6 +44,6 @@
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-green-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit t('.submit'), class: "rounded-lg py-3 px-5 bg-green-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>

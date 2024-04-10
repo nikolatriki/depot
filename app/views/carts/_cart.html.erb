@@ -1,18 +1,18 @@
 <div id="<%= dom_id cart %>">
 
-  <h2 class="font-bold text-lg mb-3">Your Cart</h2>
+  <h2 class="font-bold text-lg mb-3"><%= t('.your_cart')%></h2>
 
   <table class="table-auto">
   <%= render cart.line_items.order(:created_at), layout: true %>
     <tfoot>
       <tr>
         <th class="text-right pr-2 pt-2" colspan="3">Total:</th>
-        <td class="text-right pt-2 font-bold border-t-2 border-black"><%=number_to_currency cart.total_price, format: "%n %u", unit: "MKD"%></td>
+        <td class="text-right pt-2 font-bold border-t-2 border-black"><%=number_to_currency cart.total_price%></td>
       </tr>
     </tfoot>
   </table>
   <div class="flex mt-1">
-    <%= button_to "Empty Cart", cart_path(cart), method: :delete, class: "ml-4 rounded-lg py-1 px-2 text-white bg-slate-400" %>
-    <%= button_to "Checkout", new_order_path, method: :get, disabled: disable_checkout_button?, class: "#{ "cursor-not-allowed bg-slate-300" if disable_checkout_button? } ml-4 rounded-lg py-1 px-2 text-white bg-green-600" %>
+    <%= button_to t('.empty_cart'), cart_path(cart), method: :delete, class: "ml-4 rounded-lg py-1 px-2 text-white bg-slate-400" %>
+    <%= button_to t('.checkout'), new_order_path, method: :get, disabled: disable_checkout_button?, class: "#{ "cursor-not-allowed bg-slate-300" if disable_checkout_button? } ml-4 rounded-lg py-1 px-2 text-white bg-green-600" %>
   </div>
 </div>

@@ -30,4 +30,56 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      home: "Home"
+      questions: "Questions"
+      news: "News"
+      contact: "Contact"
+  store:
+    index:
+      home_title: "Your Wine Catalog"
+    product:
+      add_to_cart: "Add to Cart"
+  carts:
+    cart:
+      your_cart: "Your Cart"
+      empty_cart: "Empty Cart"
+      checkout: "Checkout"
+  number:
+    currency:
+      format:
+        delimiter: ","
+        separator: "."
+        precision: 2
+        unit: "MKD"
+        format: "%n %u"
+  orders:
+    new:
+      title: "Please enter your details"
+    form:
+      name: "Name"
+      address: "Address"
+      pay_type: "Pay Type"
+      select_pay_type: "Select a payment method"
+      pay_types:
+        "Check": "Checkerauz"
+        "Credit Card": "Credit Card"
+        "Purchase Order": "Purchase Order"
+      submit: "Place Order"
+    check:
+      routing: "Routing #"
+      account: "Account #"
+    cc:
+      cc_number: "Credit Card #"
+      exp_date: "Expiration Date"
+    po:
+      po_number: "Purchase Order #"
+  errors:
+    template:
+      body: "There were problems with the following fields:"
+      header:
+        one:  "1 error prohibited this %{model} from being saved"
+        other:  "%{count} errors prohibited this %{model} from being saved"
+
+  thanks: "Thank you for your order. We will send you an email with the details of your order."
