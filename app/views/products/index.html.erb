@@ -7,7 +7,7 @@
   <% end %>
 
   <div class="flex justify-between items-center pb-8">
-    <h1 class="mx-auto text-lg font-bold text-4xl">Products</h1>
+    <h1 class="mx-auto text-lg font-bold text-4xl"><%= t('.title')%></h1>
   </div>
 
   <table id="products" class="mx-auto">
@@ -15,7 +15,7 @@
       <tr>
         <td colspan="3">
           <div class="mt-8">
-            <%= link_to 'New product',
+            <%= link_to  t('.new_product'),
                         new_product_path,
                         class: "inline rounded-lg py-3 px-5 bg-green-600
                                 text-white block font-medium" %>
@@ -43,22 +43,22 @@
           <td class="px-3">
             <ul>
               <li>
-                <%= link_to 'Show',
+                <%= link_to t('.show'),
                              product,
                              class: 'hover:underline' %>
               </li>
               <li>
-                <%= link_to 'Edit',
+                <%= link_to t('.edit'),
                              edit_product_path(product),
                              class: 'hover:underline' %>
               </li>
 
               <li>
-                <%= link_to 'Destroy',
+                <%= link_to t('.destroy'),
                              product,
                              class: 'hover:underline',
                              data: { turbo_method: :delete,
-                                     turbo_confirm: "Are you sure?" } %>
+                                     turbo_confirm: "Are you sure?" } %> <!--TODO translate the turbo_confirm -->
               </li>
             </ul>
           </td>

@@ -5,6 +5,10 @@ mk:
       questions: "Прашања"
       news: "Вести"
       contact: "Контакт"
+      orders: "Нарачки"
+      products: "Производи"
+      users: "Корисници"
+      logout: "Одјави се"
   store:
     index:
       home_title: "Вашиот Вински Каталог"
@@ -75,3 +79,34 @@ mk:
   order:
     errors:
       no_line_items: "Нема ставки во кошничката"
+
+  products:
+    index:
+      title: "Производи"
+      new_product: "Нов Производ"
+      show: "Прикажи"
+      edit: "Измени"
+      destroy: "Избриши"
+    product:
+      title: "Наслов:"
+      description: "Опис:"
+      image_url: "URL на слика:"
+      price: "Цена:"
+      show: "Прикажи Производ"
+      edit: "Измени Производ"
+    show:
+      edit: "Измени"
+      destroy: "Избриши"
+      back: "Назад на Производи"
+    edit:
+      title: "Измени Производ"
+      back: "Назад на Производи"
+      show: "Прикажи Производ"
+    form:
+      title: "Наслов"
+      description: "Опис"
+      image_url: "URL на слика"
+      price: "Цена"
+    new:
+      title: "Нов Производ"
+      back: "Назад на Производи"

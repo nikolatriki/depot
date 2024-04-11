@@ -9,7 +9,7 @@
 
       <% @products.each do |product| %>
 
-          <%= render partial: "product", object: product %>
+          <%= render partial: "product", object: product if product.title.present? %>
 
       <% end %>
 

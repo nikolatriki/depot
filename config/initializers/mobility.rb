@@ -58,7 +58,7 @@ Mobility.configure do
     # Or uncomment this line to include but disable by default, and only enable
     # per model by passing +dirty: true+ to +translates+.
     # dirty false
-    
+
     # Column Fallback
     #
     # Uncomment line below to fallback to original column. You can pass

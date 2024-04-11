@@ -36,6 +36,10 @@ en:
       questions: "Questions"
       news: "News"
       contact: "Contact"
+      orders: "Orders"
+      products: "Products"
+      users: "Users"
+      logout: "Logout"
   store:
     index:
       home_title: "Your Wine Catalog"
@@ -87,3 +91,34 @@ en:
   order:
     errors:
       no_line_items: "No items in your cart"
+
+  products:
+    index:
+      title: "Products"
+      new_product: "New Product"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+    product:
+      title: "Title:"
+      description: "Description:"
+      image_url: "Image URL:"
+      price: "Price:"
+      show: "Show Product"
+      edit: "Edit Product"
+    show:
+      edit: "Edit"
+      destroy: "Destroy"
+      back: "Back to Products"
+    edit:
+      title: "Edit Product"
+      back: "Back to Products"
+      show: "Show Product"
+    form:
+      title: "Title"
+      description: "Description"
+      image_url: "Image URL"
+      price: "Price"
+    new:
+      title: "New Product"
+      back: "Back to Products"
