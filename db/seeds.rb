@@ -9,36 +9,21 @@
 # encoding: utf-8
 
 Product.delete_all
-Product.create!(title: "Temjanika Prima",
+Product.create!(title: "Темјаника Прима",
   description:
     %(<p>
-      <em>Build, Ship, and Run Your Applications Everywhere</em> Docker does
-      for DevOps what Rails did for web development—it gives you a new set
-      of superpowers. Gone are “works on my machine” woes and lengthy setup
-      tasks, replaced instead by a simple, consistent, Docker-based
-      development environment that will have your team up and running in
-      seconds.  Gain hands-on, real-world experience with a tool that’s
-      rapidly becoming fundamental to software development. Go from zero all
-      the way to production as Docker transforms the massive leap of
-      deploying your app in the cloud into a baby step.
-      </p>),
+    <em>Суво бело вино со македонско потекло</em> Прозрачната бистрина, аромите на круша, бозел и ананас и средното до лесно тело ја прават <em>Темјаника Прима </em> пример за елеганција.
+    </p>),
   image_url: "temjanika.jpg",
   price: 599.00)
 # . . .
-Product.create!(title: "Skroten Vranec",
+Product.create!(title: "Скротен Вранец",
   description:
     %(<p>
-      <em>Robust, Reliable, and Resilient</em>
-      APIs are transforming the business world at an increasing pace. Gain
-      the essential skills needed to quickly design, build, and deploy
-      quality web APIs that are robust, reliable, and resilient. Go from
-      initial design through prototyping and implementation to deployment of
-      mission-critical APIs for your organization. Test, secure, and deploy
-      your API with confidence and avoid the “release into production”
-      panic. Tackle just about any API challenge with more than a dozen
-      open-source utilities and common programming patterns you can apply
-      right away.
-      </p>),
+    <em> Опремено за уживање</em>,
+    црвеното вино Скротен Вранец од винарија Арсов ќе ги освежи вашите чувства. Препорачано за сервирање на 18 степени Целзиусови, ова вино совршено се сложува со разно сирење и апетисани.
+Добра практика е да се чува на најладното место (но не во фрижидер) па после отворањето, за време на пиењето полека ќе се стоплува и ќе ја достигне идеалната температура.
+    </p>),
   image_url: "vranec.jpg",
   price: 199.00)
 # . . .
