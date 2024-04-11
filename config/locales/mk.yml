@@ -54,6 +54,11 @@ mk:
         email: "Полето е-пошта"
         name: "Полето Име и Презиме"
         pay_type: "Начинот на плаќање"
+        po_number: "Требување #"
+        credit_card_number: "Полето Картичка #"
+        expiration_date: "Полето Важност до"
+        routing_number: "Полето Рутинг #"
+        account_number: "Полето Сметка #"
 
     errors:
       messages:
@@ -66,3 +71,7 @@ mk:
         one: "1 грешка спречи %{model}та да се зачува"
         other: "%{count} грешки спречија %{model}та да се зачува"
   thanks: "Ви благодариме за вашата нарачка. Ќе ви испратиме е-пошта со детали."
+
+  order:
+    errors:
+      no_line_items: "Нема ставки во кошничката"

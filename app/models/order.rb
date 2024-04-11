@@ -62,7 +62,7 @@ class Order < ApplicationRecord
 
   def must_have_line_items
     if line_items.empty?
-      errors.add(:base, "Your order must have at least one line item.")
+      errors.add(:base, I18n.t('order.errors.no_line_items'))
     end
   end
 end
