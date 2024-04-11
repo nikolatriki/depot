@@ -8,25 +8,84 @@
 #---
 # encoding: utf-8
 
+User.create!(name: "admin", password: "admin", password_confirmation: "admin")
+
 Product.delete_all
-Product.create!(title: "Темјаника Прима",
+product_1 = Product.create!(title: "Темјаника Прима",
   description:
     %(<p>
     <em>Суво бело вино со македонско потекло</em> Прозрачната бистрина, аромите на круша, бозел и ананас и средното до лесно тело ја прават <em>Темјаника Прима </em> пример за елеганција.
     </p>),
   image_url: "temjanika.jpg",
   price: 599.00)
-# . . .
-Product.create!(title: "Скротен Вранец",
+
+  # . . .
+  product_2 = Product.create!(title: "Скротен Вранец",
   description:
-    %(<p>
-    <em> Опремено за уживање</em>,
-    црвеното вино Скротен Вранец од винарија Арсов ќе ги освежи вашите чувства. Препорачано за сервирање на 18 степени Целзиусови, ова вино совршено се сложува со разно сирење и апетисани.
-Добра практика е да се чува на најладното место (но не во фрижидер) па после отворањето, за време на пиењето полека ќе се стоплува и ќе ја достигне идеалната температура.
-    </p>),
+  %(<p>
+  <em> Опремено за уживање</em>,
+  црвеното вино Скротен Вранец од винарија Арсов ќе ги освежи вашите чувства. Препорачано за сервирање на 18 степени Целзиусови, ова вино совршено се сложува со разно сирење и апетисани.
+  Добра практика е да се чува на најладното место (но не во фрижидер) па после отворањето, за време на пиењето полека ќе се стоплува и ќе ја достигне идеалната температура.
+  </p>),
   image_url: "vranec.jpg",
   price: 199.00)
-# . . .
+  # . . .
+  I18n.locale = :en
+  product_1.title = "Temjanika Prima"
+  product_1.description = %(<p><em>Dry white wine of Macedonian origin</em> Translucent clarity, aromas of pear, elderberry and pineapple and medium to light body make <em>Temjanika Prima</em> an example of elegance.
+  </p>)
+  product_1.save!
+
+  product_2.title = "Skroten Vranec"
+  product_2.description = %(<p><em>Ready for enjoyment</em>, the red wine Skroten Vranec from the Arsov winery will refresh your senses. Recommended for serving at 18 degrees Celsius, this wine pairs perfectly with various cheeses and appetizers.
+  It is a good practice to keep it in the coolest place (but not in the refrigerator) so after opening, during drinking it will slowly warm up and reach the ideal temperature.
+  </p>)
+  product_2.save!
+
+# Product.create!(title: "CoffeeScript",
+#   description:
+#     %(<p>
+#       <em>Text-based JavaScript</em>
+#       CoffeeScript is JavaScript without the ugly syntax. It’s a
+#       programming language that compiles into JavaScript. This book
+#       teaches you how to write CoffeeScript, how to test it, and how
+#       to build it into a standalone application. Because it’s based on
+#       JavaScript, you can use any existing JavaScript library in your
+#       CoffeeScript code.
+#       </p>),
+#   image_url: "cs.jpg",
+#   price: 36.00)
+
+# Product.create!(title: "Programming Ruby 1.9 & 2.0",
+#   description:
+#     %(<p>
+#       <em>The Pragmatic Programmers’ Guide</em>
+#       Ruby is the fastest growing and most exciting dynamic language
+#       out there. If you need to get working programs delivered fast,
+#       you should add Ruby to your toolbox.
+#       </p>),
+#   image_url: "ruby.jpg",
+#   price: 49.95)
+
+# Product.create!(title: "Rails Test Prescriptions",
+#   description:
+#     %(<p>
+#       <em>Do you test your Rails applications?</em>
+#       This book will help you get started with testing your Rails
+#       applications. You’ll learn how to use the built-in testing
+#       framework in Rails, how to write unit tests, and how to test
+#       your applications with Cucumber and RSpec.
+#       </p>),
+#   image_url: "rtp.jpg",
+#   price: 34.95)
+
+# Product.create!(title: "Agile Web Development with Rails 6",
+#   description:
+#     %(<p>
+#       <em>Learn Rails the way the Rails core team recommends it</em>
+#       This book is a step-by-step tutorial to creating a Rails application.
+#       It covers the development of a shopping cart application, including
+#       tasks like creating a catalog, building a shopping cart, and
 
 # Product.create!(title: "Modern CSS with Tailwind",
 #   description:
