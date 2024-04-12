@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :products
 
+  resources :support_requests, only: [:index, :update]
+
   root 'store#index', as: 'store_index'
 end

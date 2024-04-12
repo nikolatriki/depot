@@ -30,6 +30,8 @@ product_1 = Product.create!(title: "Темјаника Прима",
   image_url: "vranec.jpg",
   price: 199.00)
   # . . .
+
+  # Using the Mobility gem to add translations to the products
   I18n.locale = :en
   product_1.title = "Temjanika Prima"
   product_1.description = %(<p><em>Dry white wine of Macedonian origin</em> Translucent clarity, aromas of pear, elderberry and pineapple and medium to light body make <em>Temjanika Prima</em> an example of elegance.
