@@ -40,6 +40,7 @@ en:
       products: "Products"
       users: "Users"
       logout: "Logout"
+      mailbox: "Support"
   store:
     index:
       home_title: "Your Wine Catalog"

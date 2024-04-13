@@ -9,6 +9,7 @@ mk:
       products: "Производи"
       users: "Корисници"
       logout: "Одјави се"
+      mailbox: "Поддршка"
   store:
     index:
       home_title: "Вашиот Вински Каталог"

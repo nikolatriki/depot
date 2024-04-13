@@ -75,3 +75,4 @@ end
 
 gem 'rails-i18n', '~> 7.0.0'
 gem 'mobility', '~> 1.3.0.rc3'
+gem "font-awesome-rails"

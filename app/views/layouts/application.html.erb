@@ -40,6 +40,7 @@
           <hr class="my-2">
           <ul class="text-white-300 leading-8">
             <li><%= link_to t('.orders'), orders_path %></li>
+            <li style="white-space: nowrap;"><%= link_to fa_icon('envelope', text: t('.mailbox'), style: 'far'), support_requests_path %></li>
             <li><%= link_to t('.products'), products_path %></li>
             <li><%= link_to t('.users'), users_path %></li>
             <li><%= button_to t('.logout'), logout_path, method: :delete %></li>
