@@ -60,6 +60,11 @@ en:
         unit: "MKD"
         format: "%n %u"
   orders:
+    index:
+      title: "Orders"
+    order:
+      show: "Show this order"
+      edit: "Edit this order"
     new:
       title: "Please enter your details"
     form:
@@ -123,3 +128,6 @@ en:
     new:
       title: "New Product"
       back: "Back to Products"
+  support_requests:
+    index:
+      title: "Support Requests Mailbox"

@@ -29,6 +29,11 @@ mk:
         unit: "ден."
         format: "%n %u"
   orders:
+    index:
+      title: "Нарачки"
+    order:
+      show: "Прикажи ја оваа нарачка"
+      edit: "Измени ја оваа нарачка"
     new:
       title: "Внесете ги вашите податоци"
     form:
@@ -111,3 +116,6 @@ mk:
     new:
       title: "Нов Производ"
       back: "Назад на Производи"
+  support_requests:
+    index:
+      title: "Е-пошта за поддршка"
