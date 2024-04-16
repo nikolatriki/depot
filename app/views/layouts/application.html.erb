@@ -16,10 +16,12 @@
   </head>
 
   <body>
-    <% if I18n.locale == :mk %>
-      <p class="fixed top-0 right-0 mt-4 mr-4"><%= link_to 'English', url_for(locale: :en), class: "border-2 px-4 py-2 bg-transaparent text-black rounded hover:bg-gray-300 hover:text-white"%></p>
-    <% else %>
-      <p class="fixed top-0 right-0 mt-4 mr-4"><%= link_to 'Македонски', url_for(locale: :mk), class: "border-2 px-4 py-2 bg-transaparent text-black rounded hover:bg-gray-300 hover:text-white" %></p>
+    <% unless current_page?(new_order_path) || @order&.errors&.any? %>
+      <% if I18n.locale == :mk %>
+        <p class="fixed top-0 right-0 mt-4 mr-4"><%= link_to 'English', url_for(locale: :en), class: "border-2 px-4 py-2 bg-transaparent text-black rounded hover:bg-gray-300 hover:text-white"%></p>
+      <% else %>
+        <p class="fixed top-0 right-0 mt-4 mr-4"><%= link_to 'Македонски', url_for(locale: :mk), class: "border-2 px-4 py-2 bg-transaparent text-black rounded hover:bg-gray-300 hover:text-white" %></p>
+      <% end %>
     <% end %>
 
     <header class="bg-gray-200">

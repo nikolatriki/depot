@@ -8,7 +8,7 @@
 #---
 # encoding: utf-8
 
-User.create!(name: "admin", password: "admin", password_confirmation: "admin")
+User.create!(name: "admin", password: Rails.application.credentials.admin_password)
 
 Product.delete_all
 product_1 = Product.create!(title: "Темјаника Прима",

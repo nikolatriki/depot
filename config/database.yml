@@ -80,4 +80,11 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  url: <%= ENV['DATABASE_URL'] %>
+  database: depot
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password
+  pool: 5
+  # url: <%= ENV['DATABASE_URL'] %>
